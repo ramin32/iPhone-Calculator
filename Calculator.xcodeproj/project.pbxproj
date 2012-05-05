@@ -21,6 +21,7 @@
 		F5B48A1D1555960D0090B430 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B48A1B1555960D0090B430 /* InfoPlist.strings */; };
 		F5B48A201555960D0090B430 /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B48A1F1555960D0090B430 /* CalculatorTests.m */; };
 		F5B48A2B1555964F0090B430 /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B48A2A1555964F0090B430 /* CalculatorBrain.m */; };
+		F5B48A2E1555A87A0090B430 /* OperandStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B48A2D1555A87A0090B430 /* OperandStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		F5B48A1F1555960D0090B430 /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
 		F5B48A291555964F0090B430 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		F5B48A2A1555964F0090B430 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
+		F5B48A2C1555A87A0090B430 /* OperandStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperandStack.h; sourceTree = "<group>"; };
+		F5B48A2D1555A87A0090B430 /* OperandStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperandStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				F5B48A091555960D0090B430 /* CalculatorViewController.h */,
 				F5B48A0A1555960D0090B430 /* CalculatorViewController.m */,
 				F5B489FB1555960D0090B430 /* Supporting Files */,
+				F5B48A2C1555A87A0090B430 /* OperandStack.h */,
+				F5B48A2D1555A87A0090B430 /* OperandStack.m */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				F5B48A051555960D0090B430 /* CalculatorAppDelegate.m in Sources */,
 				F5B48A0B1555960D0090B430 /* CalculatorViewController.m in Sources */,
 				F5B48A2B1555964F0090B430 /* CalculatorBrain.m in Sources */,
+				F5B48A2E1555A87A0090B430 /* OperandStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

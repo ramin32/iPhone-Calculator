@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OperandStack.h"
 
 @interface CalculatorBrain : NSObject
+
+@property (nonatomic, strong) OperandStack *operandStack;
+@property (nonatomic, strong) OperandStack *memory;
 
 - (void) pushOperand:(double) number;
 - (double) performOperation:(NSString *) operator;

@@ -17,6 +17,8 @@
 @implementation CalculatorViewController
 
 @synthesize outputLabel = _outputLabel;
+@synthesize stackLabel = _stackLabel;
+@synthesize memoryLabel = _memoryLabel;
 @synthesize brain = _brain;
 @synthesize isTyping = _isTyping;
 
@@ -25,6 +27,12 @@
     if (_brain == nil)
         _brain = [[CalculatorBrain alloc] init];
     return _brain;
+}
+
+- (void) updateDescriptionLabels
+{
+    self.stackLabel.text = self.brain.operandStack.description;
+    self.memoryLabel.text = self.brain.memory.description;
 }
 
 - (IBAction) operandPressed:(UIButton *) sender
@@ -41,6 +49,7 @@
         self.outputLabel.text = sender.currentTitle;
         self.isTyping = YES;
     }
+    [self updateDescriptionLabels];
 }
 
 - (IBAction) operatorPressed:(UIButton *) sender
@@ -49,16 +58,22 @@
     
     double result = [self.brain performOperation: sender.currentTitle];
     self.outputLabel.text = [NSString stringWithFormat: @"%g", result];
+    [self updateDescriptionLabels];
 }
 
 - (IBAction)enterPressed
 {
     if (self.isTyping) 
     {
-        
         [self.brain pushOperand: [self.outputLabel.text doubleValue]];
         self.isTyping = NO;
     }
+    [self updateDescriptionLabels];
 }
 
+
+- (void)viewDidUnload {
+    [self setMemoryLabel:nil];
+    [super viewDidUnload];
+}
 @end

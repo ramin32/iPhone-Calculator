@@ -11,6 +11,8 @@
 @interface CalculatorViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stackLabel;
+@property (weak, nonatomic) IBOutlet UILabel *memoryLabel;
 
 - (IBAction) operandPressed: (UIButton *) sender;
 - (IBAction) operatorPressed: (UIButton *) sender;
