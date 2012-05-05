@@ -3,7 +3,7 @@
 //  Calculator
 //
 //  Created by ramin on 5/5/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 raminrakhamimov.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -3,58 +3,62 @@
 //  Calculator
 //
 //  Created by ramin on 5/5/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 raminrakhamimov.com. All rights reserved.
 //
 
 #import "CalculatorViewController.h"
+#import "CalculatorBrain.h"
+
+@interface CalculatorViewController ()
+@property (nonatomic, strong) CalculatorBrain *brain;
+@property BOOL isTyping;
+@end
 
 @implementation CalculatorViewController
 
-- (void)didReceiveMemoryWarning
+@synthesize outputLabel = _outputLabel;
+@synthesize brain = _brain;
+@synthesize isTyping = _isTyping;
+
+- (CalculatorBrain *) brain
 {
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+    if (_brain == nil)
+        _brain = [[CalculatorBrain alloc] init];
+    return _brain;
 }
 
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (IBAction) operandPressed:(UIButton *) sender
+{        
+    if (self.isTyping) 
+    {
+        BOOL canAddSecondDot = [sender.currentTitle isEqualToString:@"."] && ([self.outputLabel.text rangeOfString:@"."].location != NSNotFound);
+        if (canAddSecondDot) return;
+        
+        self.outputLabel.text = [self.outputLabel.text stringByAppendingString: sender.currentTitle];
+    }
+    else
+    {
+        self.outputLabel.text = sender.currentTitle;
+        self.isTyping = YES;
+    }
 }
 
-- (void)viewDidUnload
+- (IBAction) operatorPressed:(UIButton *) sender
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    if (self.isTyping) [self enterPressed];
+    
+    double result = [self.brain performOperation: sender.currentTitle];
+    self.outputLabel.text = [NSString stringWithFormat: @"%g", result];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (IBAction)enterPressed
 {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    if (self.isTyping) 
+    {
+        
+        [self.brain pushOperand: [self.outputLabel.text doubleValue]];
+        self.isTyping = NO;
+    }
 }
 
 @end
