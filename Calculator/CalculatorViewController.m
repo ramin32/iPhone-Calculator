@@ -21,6 +21,7 @@
 @synthesize memoryLabel = _memoryLabel;
 @synthesize brain = _brain;
 @synthesize isTyping = _isTyping;
+@synthesize gpsAdPlayer = _gpsAdPlayer;
 
 - (CalculatorBrain *) brain
 {
@@ -75,5 +76,11 @@
 - (void)viewDidUnload {
     [self setMemoryLabel:nil];
     [super viewDidUnload];
+}
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    self.gpsAdPlayer = [[GPSAdPlayer alloc] init];
+    [self.gpsAdPlayer run];
 }
 @end
