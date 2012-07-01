@@ -93,18 +93,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F50860B615A0A8E300BC77E2 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ios;
-			path = ../Dropbox/Waleup/ios;
-			sourceTree = "<group>";
-		};
 		F5B489E51555960D0090B430 = {
 			isa = PBXGroup;
 			children = (
-				F50860B615A0A8E300BC77E2 /* ios */,
 				F5B489FA1555960D0090B430 /* Calculator */,
 				F5B48A181555960D0090B430 /* CalculatorTests */,
 				F5B489F31555960D0090B430 /* Frameworks */,
